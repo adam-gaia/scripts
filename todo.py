@@ -43,9 +43,11 @@ if len(sys.argv) < 2: # If no args, check that we are running in a git repo
 			exit(1)
 		filesToSearch = result.stdout.decode("utf-8").split('\n')
 		filesToSearch[:] = [x for x in filesToSearch if x] # Remove any empty strings
+		logGitIssues = True
 
 else: # Take files to read from input args
 	filesToSearch = sys.argv[1:]
+	logGitIssues = False
 
 # Create a dict of dicts to hold saved lines
 outputDicts = dict()
@@ -64,6 +66,7 @@ for fileName in filesToSearch:
 		lineNum = 1
 		for line in f:
 
+
 			# Check if each search term appears on the line
 			for term in searchTerms:
 				if term.lower() in line.lower():
@@ -78,4 +81,7 @@ for fileName in filesToSearch:
 			print(c.GREEN + str(lineNum) + c.NORMAL, end='')
 			print(":", end='')
 			print(line.replace(term, c.RED + term + c.NORMAL).replace(term.lower(), c.RED + term.lower() + c.NORMAL))
+
+
+
 
