@@ -56,7 +56,7 @@ do
 
         *) # default
             echo "No linter set for file '${FILENAME}'"
-            exit 1
+            continue
             ;;
 
     esac
