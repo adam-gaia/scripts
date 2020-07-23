@@ -66,6 +66,10 @@ do
 
     esac
 
-    lintHelper "${LINTER}" "${ARGS}" "${fileName}"
+    if [[ "${ARGS}" == '' ]]; then
+        lintHelper "${LINTER}" "${FILENAME}"
+    else
+        lintHelper "${LINTER}" "${LINTER_ARGS}" "${FILENAME}"
+    fi
 
 done
