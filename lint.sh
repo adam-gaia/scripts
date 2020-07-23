@@ -6,7 +6,6 @@ function lintHelper()
     LINTER_ARGS="${2}"
     FILENAME="${3}"
 
-    echo "================================================="
     echo "Linting '${FILENAME}' with '${LINTER} ${LINTER_ARGS}'."
     echo ''
 
@@ -66,10 +65,6 @@ do
 
     esac
 
-    if [[ "${ARGS}" == '' ]]; then
-        lintHelper "${LINTER}" "${FILENAME}"
-    else
-        lintHelper "${LINTER}" "${LINTER_ARGS}" "${FILENAME}"
-    fi
+    lintHelper "${LINTER}" "${LINTER_ARGS}" "${FILENAME}"
 
 done
