@@ -25,8 +25,12 @@ fi
 # Loop over input files
 for FILENAME in "$@"
 do
+
+    echo "Checking file '${FILENAME}'..."
+
     # Skip if file doesn't exist
-    if [[ -f "${FILENAME}" ]]; then
+    if [[ ! -f "${FILENAME}" ]]; then
+        echo "This file doesn't exist. Skipping."
         continue
     fi
 
@@ -56,7 +60,7 @@ do
             ;;
 
         *) # default
-            echo "No linter set for file '${FILENAME}'"
+            echo "No linter set for this file. Skipping."
             continue
             ;;
 
