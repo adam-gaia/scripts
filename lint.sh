@@ -28,6 +28,10 @@ fi
 # Loop over input files
 for FILENAME in "$@"
 do
+    # Skip if file doesn't exist
+    if [[ -f "${FILENAME}" ]]; then
+        continue
+    fi
 
     LINTER_ARGS='' # Reset to no extra args
 
