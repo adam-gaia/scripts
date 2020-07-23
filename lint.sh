@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 function lintHelper()
 {
     LINTER="${1}"
@@ -16,14 +15,12 @@ function lintHelper()
     echo ''
 }
 
-
 if [[ "$#" -eq '0' ]]; then
     echo 'This script lints files based on the file extension.'
     echo 'Usage:'
     echo '    lint.sh file1, file2, ... fileN'
     exit 0
 fi
-
 
 # Loop over input files
 for FILENAME in "$@"
