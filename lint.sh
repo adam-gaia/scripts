@@ -6,11 +6,18 @@ function lintHelper()
     LINTER_ARGS="${2}"
     FILENAME="${3}"
 
-    echo "Linting '${FILENAME}' with '${LINTER} ${LINTER_ARGS}'."
-    echo ''
+    if [[ "${LINTER_ARGS}" == '' ]]; then
+        command="${LINTER} ${FILENAME}"
+    else
+        command="${LINTER} ${LINTER_ARGS} ${FILENAME}"
+    fi
+
+    echo "Linting '${FILENAME}' with '${command}'"
 
     # Run linter. Print error message and exit if file doesn't pass
-    "${LINTER}" "${ARGS}" "${FILENAME}" || { echo "'${FILENAME}' did not pass linter."; exit 1; }
+    ${LINTER_ARGS} || { echo "'${FILENAME}' did not pass linter."; exit 1; }
+    
+    echo 'Pass'
     echo ''
 }
 
