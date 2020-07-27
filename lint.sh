@@ -48,6 +48,10 @@ do
             LINTER='python3 -m cpplint'
             ;;
 
+        *'.json')
+            LINTER='lintJson' # lintJson is one of my bash functions
+            ;;
+
         *'.py')
             LINTER='python3 -m flake8'
             LINTER_ARGS='--max-line-length 120'
