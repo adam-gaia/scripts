@@ -54,7 +54,9 @@ do
 
         *'.py')
             LINTER='python3 -m flake8'
-            LINTER_ARGS='--max-line-length 120'
+            # Ignoring: E261 - "at least two spaces before inline comment"
+            # Ignoring: E266 - "Too many leading '#' for block comment"
+            LINTER_ARGS='--max-line-length 120 --ignore=E261,E266'
             ;;
 
         *'.sh')
