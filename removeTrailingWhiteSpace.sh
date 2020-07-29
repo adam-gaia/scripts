@@ -11,4 +11,3 @@ case "${OSTYPE}" in
         gsed -e 's/\s*$//' "$1"
         ;;
 esac
-
