@@ -15,7 +15,7 @@ function lintHelper()
     echo "Linting '${FILENAME}' with '${command}'"
 
     # Run linter. Print error message and exit if file doesn't pass
-    ${LINTER_ARGS} || { echo "'${FILENAME}' did not pass linter."; exit 1; }
+    ${command} || { echo "'${FILENAME}' did not pass linter."; exit 1; }
     
     echo 'Pass'
     echo ''
