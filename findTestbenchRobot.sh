@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e # Exit on first error
 
-nmapResults=$(sudo nmap -sn 10.0.5.188/22 | grep -i 'testbench\|deploy\|metalXO')
+nmapResults=$(sudo nmap -sn 10.0.5.255/22 | grep -i 'testbench\|deploy\|metalXO\|alpha')
 
 echo "$nmapResults"
 echo ''
@@ -21,4 +21,3 @@ for var in "${testBenchList[@]}"; do
     echo ''
 
 done
-
